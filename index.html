@@ -372,6 +372,30 @@
       .profile-card{ max-width: 520px; margin: 0 auto; }
       .two-col{ grid-template-columns: 1fr; }
     }
+
+/* ===== Working Papers Section Layout ===== */
+.section-grid{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.section-heading h2{
+  margin: 0;
+  font-size: 56px;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+@media (max-width: 960px){
+  .section-grid{ grid-template-columns: 1fr; }
+  .section-heading h2{ font-size: 40px; }
+}
+
+    
   </style>
 </head>
 
@@ -483,21 +507,21 @@
                 <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 <div>
                   <p class="degree">PhD in Economics (University of Birmingham)</p>
-                  <p class="inst">2021 – Present</p>
+                  <p class="inst">Oct 2021 – Dec 2025</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 <div>
                   <p class="degree">MA in Economic Development (Erasmus University Rotterdam)</p>
-                  <p class="inst">2013 – 2015</p>
+                  <p class="inst">Oct 2013 – Oct 2015</p>
                 </div>
               </li>
               <li>
                 <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 <div>
-                  <p class="degree">BSc in Banking &amp; Finance (UEH)</p>
-                  <p class="inst">Vietnam</p>
+                  <p class="degree">Postgraduate certificate (Monash University)</p>
+                  <p class="inst">Jan 2021 - Jul 2021</p>
                 </div>
               </li>
             </ul>
@@ -625,3 +649,4 @@
 
 </body>
 </html>
+
