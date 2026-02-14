@@ -283,21 +283,94 @@
       font-size: 13px;
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 960px){
-      .about-grid{ grid-template-columns: 1fr; }
-      .profile-card{ max-width: 520px; margin: 0 auto; }
-      .two-col{ grid-template-columns: 1fr; }
+    /* ===== Optional “section” anchors ===== */
+    section{ scroll-margin-top: calc(var(--navh) + 16px); }
+
+    /* ===== Working Papers (Jinci-style cards + collapsible abstract) ===== */
+    .section-title{
+      font-size: 28px;
+      margin: 26px 0 14px;
+      letter-spacing: -0.02em;
+    }
+    .paper-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      margin-top: 14px;
+    }
+    .paper-title{
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .paper-title a{
+      color: var(--text);
+      text-decoration: none;
+    }
+    .paper-title a:hover{
+      text-decoration: underline;
+    }
+    .paper-meta{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .paper-abstract{
+      margin-top: 10px;
+    }
+    .paper-abstract summary{
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 14px;
+      list-style: none;
+    }
+    .paper-abstract summary::-webkit-details-marker{ display: none; }
+    .paper-abstract summary::before{
+      content: "▶";
+      display: inline-block;
+      margin-right: 8px;
+      transform: translateY(-1px);
+      color: var(--muted);
+    }
+    .paper-abstract[open] summary::before{
+      content: "▼";
+    }
+    .abstract-body{
+      margin-top: 10px;
+      color: #111827;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .abstract-placeholder{
+      color: var(--muted);
+      font-style: italic;
+      margin: 0;
+    }
+    .paper-foot{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    /* Optional “section” placeholders if you later add tabs/anchors */
-    section{ scroll-margin-top: calc(var(--navh) + 16px); }
+    /* ===== Section placeholders (Teaching/Contact for now) ===== */
     .section-placeholder{
       margin-top: 26px;
       border: 1px dashed var(--border);
       border-radius: var(--radius);
       padding: 18px;
       color: var(--muted);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 960px){
+      .about-grid{ grid-template-columns: 1fr; }
+      .profile-card{ max-width: 520px; margin: 0 auto; }
+      .two-col{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -310,18 +383,16 @@
       <a class="brand" href="#about">Kien Son Nguyen</a>
 
       <div class="nav-links">
-        <a href="files/CV_RA_SonKien_ComputationalSocial.pdf">CV</a>
+        <a href="files/CV_RA_SonKien_ComputationalSocial.pdf" target="_blank" rel="noopener">CV</a>
         <a href="#research">Research</a>
         <a href="#teaching">Teaching</a>
         <a href="#contact">Contact</a>
       </div>
 
       <div class="nav-icons" aria-label="Quick actions">
-        <!-- (Optional) you can wire this to a real search later -->
         <button class="icon-btn" type="button" aria-label="Search (placeholder)">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <!-- (Optional) theme toggle placeholder -->
         <button class="icon-btn" type="button" aria-label="Theme (placeholder)">
           <i class="fa-solid fa-palette"></i>
         </button>
@@ -334,7 +405,6 @@
     <section id="about" class="about-grid" aria-label="About">
       <!-- Left profile -->
       <aside class="profile-card">
-        <!-- Put your headshot here: create /assets/avatar.jpg in your repo -->
         <img class="avatar" src="assets/avatar.jpg" alt="Portrait of Kien Son Nguyen" />
 
         <div class="profile-title">
@@ -342,7 +412,6 @@
           <p class="role">Research Economist</p>
           <p class="affil">University of Birmingham</p>
 
-          <!-- Optional pronunciation link -->
           <p class="pronounce">
             <a href="#" aria-label="How to pronounce my name">How to pronounce my name</a>
           </p>
@@ -359,7 +428,7 @@
           <a class="social" href="https://github.com/kienns097" target="_blank" rel="noopener" aria-label="GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
-          <a class="social" href="files/CV_RA_SonKien_ComputationalSocial.pdf" aria-label="CV PDF">
+          <a class="social" href="files/CV_RA_SonKien_ComputationalSocial.pdf" target="_blank" rel="noopener" aria-label="CV PDF">
             <i class="ai ai-cv"></i>
           </a>
         </div>
@@ -384,10 +453,8 @@
           </p>
 
           <div class="callouts">
-            <!-- Use this pill for job-market / availability / current role -->
             <span class="pill"><i class="fa-solid fa-circle-info"></i> Open to research collaborations</span>
 
-            <!-- CV download -->
             <a class="pill" href="files/CV_RA_SonKien_ComputationalSocial.pdf" target="_blank" rel="noopener">
               <i class="fa-solid fa-download"></i> Download my CV
             </a>
@@ -437,29 +504,118 @@
           </div>
         </div>
 
+        <!-- RESEARCH -->
+        <section id="research" aria-label="Research">
+          <h2 class="section-title">Working Papers</h2>
+
+          <!-- WP 1 -->
+          <article class="paper-card">
+            <h3 class="paper-title">
+              <a href="#" target="_blank" rel="noopener">
+                Improving Staff Retention at the RBFT – Econometric Data Analytics, Probabilistic Forecasting and Management Intelligence
+              </a>
+            </h3>
+            <div class="paper-meta">
+              Status: Ongoing project · Target: Human Resource Management Journal (CABS 4)
+            </div>
+            <details class="paper-abstract">
+              <summary>Abstract</summary>
+              <div class="abstract-body">
+                <p class="abstract-placeholder">[Abstract to be added]</p>
+              </div>
+            </details>
+            <div class="paper-foot">
+              Co-authors: Shixuan Wang; Rita Fontinha
+            </div>
+          </article>
+
+          <!-- WP 2 -->
+          <article class="paper-card">
+            <h3 class="paper-title">
+              <a href="#" target="_blank" rel="noopener">
+                Forecasting USA Output Gap with Green-Benchmarked Divisia Monetary Aggregates
+              </a>
+            </h3>
+            <div class="paper-meta">
+              Status: Submitted · Target: Energy Economics (CABS 3)
+            </div>
+            <details class="paper-abstract">
+              <summary>Abstract</summary>
+              <div class="abstract-body">
+                <p class="abstract-placeholder">[Abstract to be added]</p>
+              </div>
+            </details>
+            <div class="paper-foot">
+              Co-authors: Jane Binner; Rongrui Duan; Anandadeep Mandal; Soumya Bhadury
+            </div>
+          </article>
+
+          <!-- WP 3 -->
+          <article class="paper-card">
+            <h3 class="paper-title">
+              <a href="#" target="_blank" rel="noopener">
+                Board Gender Diversity and Environmental Performance in Europe
+              </a>
+            </h3>
+            <div class="paper-meta">
+              Status: Empirical work complete
+            </div>
+            <details class="paper-abstract">
+              <summary>Abstract</summary>
+              <div class="abstract-body">
+                <p class="abstract-placeholder">[Abstract to be added]</p>
+              </div>
+            </details>
+            <div class="paper-foot">
+              Co-authors: Alessandra Guariglia; Elisa Tosetti
+            </div>
+          </article>
+
+          <!-- WP 4 -->
+          <article class="paper-card">
+            <h3 class="paper-title">
+              <a href="#" target="_blank" rel="noopener">
+                When Birds of Different Feathers Flock Together: Ethnic Diversity and Armed Conflict
+              </a>
+            </h3>
+            <div class="paper-meta">
+              Status: Empirical work complete · Target: Personality and Social Psychology Bulletin (CABS 4)
+            </div>
+            <details class="paper-abstract">
+              <summary>Abstract</summary>
+              <div class="abstract-body">
+                <p class="abstract-placeholder">[Abstract to be added]</p>
+              </div>
+            </details>
+            <div class="paper-foot">
+              Co-authors: Miguel R. Ramos; Matt Bennett; Unaysah Mogra
+            </div>
+          </article>
+        </section>
+
         <!-- Placeholders for later sections -->
-        <div id="research" class="section-placeholder">Research section (we’ll build next)</div>
-        <div id="teaching" class="section-placeholder">Teaching section (we’ll build later)</div>
-        <div id="contact" class="section-placeholder">Contact section (we’ll build later)</div>
+        <section id="teaching" class="section-placeholder" aria-label="Teaching">Teaching section (we’ll build later)</section>
+        <section id="contact" class="section-placeholder" aria-label="Contact">Contact section (we’ll build later)</section>
+
       </div>
     </section>
   </main>
 
   <script>
-    // Optional: highlight active nav link on scroll (lightweight)
-    const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-    const sections = links
+    // Highlight active nav link on scroll (anchors only)
+    const anchorLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const anchorSections = anchorLinks
       .map(a => document.querySelector(a.getAttribute('href')))
       .filter(Boolean);
 
     const setActive = () => {
       const y = window.scrollY + 90;
-      let current = sections[0];
-      for (const s of sections) {
+      let current = anchorSections[0];
+      for (const s of anchorSections) {
         if (s.offsetTop <= y) current = s;
       }
-      links.forEach(a => a.style.background = '');
-      const active = links.find(a => a.getAttribute('href') === '#' + current.id);
+      anchorLinks.forEach(a => a.style.background = '');
+      const active = anchorLinks.find(a => a.getAttribute('href') === '#' + current.id);
       if (active) active.style.background = '#f3f4f6';
     };
 
@@ -469,5 +625,3 @@
 
 </body>
 </html>
-
-
