@@ -283,87 +283,131 @@
       font-size: 13px;
     }
 
-    /* ===== Optional “section” anchors ===== */
-    section{ scroll-margin-top: calc(var(--navh) + 16px); }
-
-    /* ===== Working Papers (Jinci-style cards + collapsible abstract) ===== */
-    .section-title{
-      font-size: 28px;
-      margin: 26px 0 14px;
-      letter-spacing: -0.02em;
+    /* ===== Working Papers section (Jinci-like) ===== */
+    .wp-grid{
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      align-items: start;
     }
-    .paper-card{
+    .wp-title h2{
+      margin: 0;
+      font-size: 56px;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      color: #111827;
+    }
+    .wp-list{
+      display: grid;
+      gap: 18px;
+    }
+    .paper{
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 18px 18px 14px;
-      margin-top: 14px;
+      padding: 22px;
     }
-    .paper-title{
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: -0.01em;
-      line-height: 1.25;
+    .paper h3{
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
-    .paper-title a{
-      color: var(--text);
-      text-decoration: none;
-    }
-    .paper-title a:hover{
-      text-decoration: underline;
-    }
-    .paper-meta{
-      margin-top: 6px;
+    .paper .meta{
       color: var(--muted);
-      font-size: 14px;
+      margin: 0 0 12px;
+      font-size: 16px;
     }
-    .paper-abstract{
-      margin-top: 10px;
-    }
-    .paper-abstract summary{
-      cursor: pointer;
-      user-select: none;
+    .paper .meta strong{
+      color: #111827;
       font-weight: 600;
-      color: var(--text);
-      font-size: 14px;
+    }
+    .paper details{
+      margin-top: 6px;
+    }
+    .paper summary{
+      cursor: pointer;
       list-style: none;
+      font-weight: 600;
+      color: #111827;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
     }
-    .paper-abstract summary::-webkit-details-marker{ display: none; }
-    .paper-abstract summary::before{
+    .paper summary::-webkit-details-marker{ display: none; }
+    .paper summary::before{
       content: "▶";
-      display: inline-block;
-      margin-right: 8px;
-      transform: translateY(-1px);
+      font-size: 14px;
       color: var(--muted);
+      transform: translateY(-1px);
     }
-    .paper-abstract[open] summary::before{
+    .paper details[open] summary::before{
       content: "▼";
     }
-    .abstract-body{
-      margin-top: 10px;
+    .paper .abstract{
+      margin: 12px 0 0;
       color: #111827;
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: 15px;
     }
-    .abstract-placeholder{
+    .paper .note{
+      margin: 14px 0 0;
       color: var(--muted);
-      font-style: italic;
-      margin: 0;
-    }
-    .paper-foot{
-      margin-top: 10px;
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 15px;
     }
 
-    /* ===== Section placeholders (Teaching/Contact for now) ===== */
-    .section-placeholder{
+    /* ===== Generic section layout (Grants/Contact) ===== */
+    .section-grid{
       margin-top: 26px;
-      border: 1px dashed var(--border);
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .section-title h2{
+      margin: 0;
+      font-size: 54px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      color: #111827;
+    }
+    .section-card{
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 18px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      color: #111827;
+      font-size: 15px;
+    }
+    .bullets li{ margin: 8px 0; }
+
+    .contact-list{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .contact-list li{
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 12px;
+      align-items: start;
+      font-size: 16px;
+    }
+    .contact-list i{
+      margin-top: 2px;
       color: var(--muted);
+      font-size: 18px;
     }
 
     /* ===== Responsive ===== */
@@ -371,45 +415,38 @@
       .about-grid{ grid-template-columns: 1fr; }
       .profile-card{ max-width: 520px; margin: 0 auto; }
       .two-col{ grid-template-columns: 1fr; }
+
+      .wp-grid{ grid-template-columns: 1fr; }
+      .wp-title h2{ font-size: 36px; }
+      .paper h3{ font-size: 22px; }
+
+      .section-grid{ grid-template-columns: 1fr; }
+      .section-title h2{ font-size: 36px; }
     }
 
-/* ===== Working Papers Section Layout ===== */
-.section-grid{
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.section-heading h2{
-  margin: 0;
-  font-size: 56px;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  font-weight: 500;
-}
-
-@media (max-width: 960px){
-  .section-grid{ grid-template-columns: 1fr; }
-  .section-heading h2{ font-size: 40px; }
-}
-
-    
+    /* Optional “section” anchor spacing */
+    section{ scroll-margin-top: calc(var(--navh) + 16px); }
+    .section-placeholder{
+      margin-top: 26px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      color: var(--muted);
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Top navigation (simple, like Jinci’s) -->
+  <!-- Top navigation -->
   <nav class="nav" aria-label="Primary">
     <div class="nav-inner">
       <a class="brand" href="#about">Kien Son Nguyen</a>
 
       <div class="nav-links">
-        <a href="files/CV_RA_SonKien_ComputationalSocial.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="files/CV_RA_SonKien_ComputationalSocial.pdf">CV</a>
         <a href="#research">Research</a>
-        <a href="#teaching">Teaching</a>
+        <a href="#grants">Grants &amp; Awards</a>
         <a href="#contact">Contact</a>
       </div>
 
@@ -441,9 +478,8 @@
           </p>
         </div>
 
-        <!-- Social icons -->
         <div class="social-row" aria-label="Social links">
-          <a class="social" href="mailto:kienns.research@gmail.com" aria-label="Email">
+          <a class="social" href="mailto:k.s.nguyen@bham.ac.uk" aria-label="Email">
             <i class="fa-solid fa-envelope"></i>
           </a>
           <a class="social" href="https://www.linkedin.com/in/kien-s-nguyen-287b06126" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -452,7 +488,7 @@
           <a class="social" href="https://github.com/kienns097" target="_blank" rel="noopener" aria-label="GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
-          <a class="social" href="files/CV_RA_SonKien_ComputationalSocial.pdf" target="_blank" rel="noopener" aria-label="CV PDF">
+          <a class="social" href="files/CV_RA_SonKien_ComputationalSocial.pdf" aria-label="CV PDF">
             <i class="ai ai-cv"></i>
           </a>
         </div>
@@ -478,7 +514,6 @@
 
           <div class="callouts">
             <span class="pill"><i class="fa-solid fa-circle-info"></i> Open to research collaborations</span>
-
             <a class="pill" href="files/CV_RA_SonKien_ComputationalSocial.pdf" target="_blank" rel="noopener">
               <i class="fa-solid fa-download"></i> Download my CV
             </a>
@@ -486,7 +521,6 @@
         </div>
 
         <div class="two-col">
-          <!-- Research Interests -->
           <div class="box">
             <h3>Research Interests</h3>
             <ul class="chips">
@@ -499,7 +533,6 @@
             </ul>
           </div>
 
-          <!-- Education -->
           <div class="box">
             <h3>Education</h3>
             <ul class="edu">
@@ -520,7 +553,7 @@
               <li>
                 <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 <div>
-                  <p class="degree">Postgraduate certificate (Monash University)</p>
+                 <p class="degree">Postgraduate certificate (Monash University)</p>
                   <p class="inst">Jan 2021 - Jul 2021</p>
                 </div>
               </li>
@@ -529,117 +562,131 @@
         </div>
 
         <!-- RESEARCH -->
-        <section id="research" aria-label="Research">
-          <h2 class="section-title">Working Papers</h2>
+        <section id="research" class="wp-grid" aria-label="Research">
+          <div class="wp-title">
+            <h2>Working<br/>Papers</h2>
+          </div>
 
-          <!-- WP 1 -->
-          <article class="paper-card">
-            <h3 class="paper-title">
-              <a href="#" target="_blank" rel="noopener">
-                Improving Staff Retention at the RBFT – Econometric Data Analytics, Probabilistic Forecasting and Management Intelligence
-              </a>
-            </h3>
-            <div class="paper-meta">
-              Status: Ongoing project · Target: Human Resource Management Journal (CABS 4)
-            </div>
-            <details class="paper-abstract">
-              <summary>Abstract</summary>
-              <div class="abstract-body">
-                <p class="abstract-placeholder">[Abstract to be added]</p>
-              </div>
-            </details>
-            <div class="paper-foot">
-              Co-authors: Shixuan Wang; Rita Fontinha
-            </div>
-          </article>
+          <div class="wp-list">
+            <!-- Paper 1 -->
+            <article class="paper">
+              <h3>Improving Staff Retention at the RBFT – Econometric Data Analytics, Probabilistic Forecasting and Management Intelligence</h3>
+              <p class="meta">Status: Ongoing project · Target: Human Resource Management Journal (CABS 4)</p>
 
-          <!-- WP 2 -->
-          <article class="paper-card">
-            <h3 class="paper-title">
-              <a href="#" target="_blank" rel="noopener">
-                Forecasting USA Output Gap with Green-Benchmarked Divisia Monetary Aggregates
-              </a>
-            </h3>
-            <div class="paper-meta">
-              Status: Submitted · Target: Energy Economics (CABS 3)
-            </div>
-            <details class="paper-abstract">
-              <summary>Abstract</summary>
-              <div class="abstract-body">
-                <p class="abstract-placeholder">[Abstract to be added]</p>
-              </div>
-            </details>
-            <div class="paper-foot">
-              Co-authors: Jane Binner; Rongrui Duan; Anandadeep Mandal; Soumya Bhadury
-            </div>
-          </article>
+              <details>
+                <summary>Abstract</summary>
+                <p class="abstract">
+                  <!-- Add abstract later -->
+                </p>
+              </details>
 
-          <!-- WP 3 -->
-          <article class="paper-card">
-            <h3 class="paper-title">
-              <a href="#" target="_blank" rel="noopener">
-                Board Gender Diversity and Environmental Performance in Europe
-              </a>
-            </h3>
-            <div class="paper-meta">
-              Status: Empirical work complete
-            </div>
-            <details class="paper-abstract">
-              <summary>Abstract</summary>
-              <div class="abstract-body">
-                <p class="abstract-placeholder">[Abstract to be added]</p>
-              </div>
-            </details>
-            <div class="paper-foot">
-              Co-authors: Alessandra Guariglia; Elisa Tosetti
-            </div>
-          </article>
+              <p class="note">Co-authors: Shixuan Wang; Rita Fontinha</p>
+            </article>
 
-          <!-- WP 4 -->
-          <article class="paper-card">
-            <h3 class="paper-title">
-              <a href="#" target="_blank" rel="noopener">
-                When Birds of Different Feathers Flock Together: Ethnic Diversity and Armed Conflict
-              </a>
-            </h3>
-            <div class="paper-meta">
-              Status: Empirical work complete · Target: Personality and Social Psychology Bulletin (CABS 4)
-            </div>
-            <details class="paper-abstract">
-              <summary>Abstract</summary>
-              <div class="abstract-body">
-                <p class="abstract-placeholder">[Abstract to be added]</p>
-              </div>
-            </details>
-            <div class="paper-foot">
-              Co-authors: Miguel R. Ramos; Matt Bennett; Unaysah Mogra
-            </div>
-          </article>
+            <!-- Paper 2 -->
+            <article class="paper">
+              <h3>Forecasting USA Output Gap with Green-Benchmarked Divisia Monetary Aggregates</h3>
+              <p class="meta">Status: Submitted · Target: Energy Economics (CABS 3)</p>
+
+              <details>
+                <summary>Abstract</summary>
+                <p class="abstract">
+                  <!-- Add abstract later -->
+                </p>
+              </details>
+
+              <p class="note">Co-authors: Jane Binner; Rongrui Duan; Anandadeep Mandal; Soumya Bhadury</p>
+            </article>
+
+            <!-- Paper 3 -->
+            <article class="paper">
+              <h3>Board Gender Diversity and Environmental Performance in Europe</h3>
+              <p class="meta">Status: Empirical work complete</p>
+
+              <details>
+                <summary>Abstract</summary>
+                <p class="abstract">
+                  <!-- Add abstract later -->
+                </p>
+              </details>
+
+              <p class="note">Co-authors: Alessandra Guariglia; Elisa Tosetti</p>
+            </article>
+
+            <!-- Paper 4 -->
+            <article class="paper">
+              <h3>When Birds of Different Feathers Flock Together: Ethnic Diversity and Armed Conflict</h3>
+              <p class="meta">Status: Empirical work complete · Target: Personality and Social Psychology Bulletin (CABS 4)</p>
+
+              <details>
+                <summary>Abstract</summary>
+                <p class="abstract">
+                  <!-- Add abstract later -->
+                </p>
+              </details>
+
+              <p class="note">Co-authors: Miguel R. Ramos; Matt Bennett; Unaysah Mogra</p>
+            </article>
+          </div>
         </section>
 
-        <!-- Placeholders for later sections -->
-        <section id="teaching" class="section-placeholder" aria-label="Teaching">Teaching section (we’ll build later)</section>
-        <section id="contact" class="section-placeholder" aria-label="Contact">Contact section (we’ll build later)</section>
+        <!-- GRANTS & AWARDS -->
+        <section id="grants" class="section-grid" aria-label="Grants and Awards">
+          <div class="section-title">
+            <h2>Grants<br/>and Awards</h2>
+          </div>
+
+          <div class="section-card">
+            <ul class="bullets">
+              <li><strong>Departmental PhD Scholarship, University of Birmingham</strong> (2021) — awarded +3 years of support.</li>
+              <li><strong>Development funds, University of Birmingham</strong> — supported advanced study at Oxford, Michigan State University, and LSE.</li>
+              <li><strong>Certificate of Distinction, University of Western Australia</strong>.</li>
+              <li><strong>Research Excellence Certificate</strong>, Vietnam Netherlands Program.</li>
+              <li><strong>Best Master’s Thesis (Distinction)</strong>, Erasmus University Rotterdam — awarded €300.</li>
+              <li><strong>National Project (NAFOSTED)</strong>, Ministry of Science and Technology, Vietnam — awarded £5,000.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section-grid" aria-label="Contact">
+          <div class="section-title">
+            <h2>Contact</h2>
+          </div>
+
+          <div class="section-card">
+            <ul class="contact-list">
+              <li>
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:k.s.nguyen@bham.ac.uk">k.s.nguyen@bham.ac.uk</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span>The Centre for Care, University of Birmingham, Birmingham, UK</span>
+              </li>
+            </ul>
+          </div>
+        </section>
 
       </div>
     </section>
   </main>
 
   <script>
-    // Highlight active nav link on scroll (anchors only)
-    const anchorLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
-    const anchorSections = anchorLinks
+    // Highlight active nav link on scroll (lightweight)
+    const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    const sections = links
       .map(a => document.querySelector(a.getAttribute('href')))
       .filter(Boolean);
 
     const setActive = () => {
       const y = window.scrollY + 90;
-      let current = anchorSections[0];
-      for (const s of anchorSections) {
+      let current = sections[0];
+      for (const s of sections) {
         if (s.offsetTop <= y) current = s;
       }
-      anchorLinks.forEach(a => a.style.background = '');
-      const active = anchorLinks.find(a => a.getAttribute('href') === '#' + current.id);
+      links.forEach(a => a.style.background = '');
+      const active = links.find(a => a.getAttribute('href') === '#' + current.id);
       if (active) active.style.background = '#f3f4f6';
     };
 
@@ -649,4 +696,3 @@
 
 </body>
 </html>
-
