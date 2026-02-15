@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kien Son Nguyen | Research Economist" />
-  <title>Kien Son Nguyen | Research Economist</title>
+  <meta name="description" content="Kien Son Nguyen | Research Fellow" />
+  <title>Kien Son Nguyen | Research Fellow </title>
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -191,7 +191,9 @@
     .intro p{
       margin: 0 0 12px;
       color: #111827;
+      text-align: justify;
     }
+
     .intro p:last-child{ margin-bottom: 0; }
 
     .callouts{
@@ -499,17 +501,17 @@
         <div class="intro">
           <p><strong>Hi! Welcome to my page!</strong></p>
 
-          <p>
-            I’m Kien, a research economist at the University of Birmingham.
-            My work spans <strong>financial economics</strong>, <strong>climate/environmental economics</strong>,
-            and <strong>health economics</strong>, with interests in <strong>macro-financial stability</strong>
-            and <strong>policy evaluation</strong>.
+          <p class="justified">
+            I’m Kien, a Research Fellow at the University of Birmingham. 
+            My work spans applied data science, health economics, and climate and environmental economics, 
+            with a focus on institutional analysis and policy evaluation.
           </p>
 
-          <p>
-            Methodologically, I work with <strong>causal inference</strong> (DiD/event study/SDID),
-            <strong>econometrics</strong>, and <strong>machine learning</strong>, including text-as-data
-            applications for policy and risk analysis.
+
+          <p class="justified">
+            Methodologically, I work with causal inference (DiD/event study/RCT),
+            econometrics, machine learning,  large language models, including text-as-data
+            applications, topic modeling, and forecasting for policy and risk analysis.
           </p>
 
           <div class="callouts">
@@ -524,12 +526,12 @@
           <div class="box">
             <h3>Research Interests</h3>
             <ul class="chips">
-              <li>Climate Finance</li>
-              <li>Green Monetary Policy</li>
-              <li>Macro-financial Stability</li>
-              <li>Financial Inclusion</li>
-              <li>Corporate Misconduct &amp; Reputation</li>
-              <li>Text Analysis (NLP)</li>
+              <li>Health Economics</li>
+              <li>Sociology and Social Policy</li>
+              <li>Environmental Economics</li>
+              <li>Financial Economics</li>
+              <li>Applied Data Science</li>
+              <li>Monetary Policy</li>
             </ul>
           </div>
 
@@ -568,65 +570,141 @@
           </div>
 
           <div class="wp-list">
-            <!-- Paper 1 -->
-            <article class="paper">
-              <h3>Improving Staff Retention at the RBFT – Econometric Data Analytics, Probabilistic Forecasting and Management Intelligence</h3>
-              <p class="meta">Status: Ongoing project · Target: Human Resource Management Journal (CABS 4)</p>
+          <!-- Paper 1 -->
+              <article class="paper">
+                <h3>
+                  Improving Staff Retention at the RBFT – Econometric Data Analytics, 
+                  Probabilistic Forecasting and Management Intelligence
+                </h3>
+              
+                <p class="meta">Status: Ongoing project</p>
+              
+                <details>
+                  <summary>Abstract</summary>
+                  <p class="abstract justified">
+                    In this project, we develop and evaluate forecasting models to predict the probability 
+                    of staff leaving the Royal Berkshire NHS Foundation Trust (RBFT) over horizons ranging 
+                    from one to twelve months. We begin with conventional predictive models to identify 
+                    key determinants of staff turnover and progressively implement advanced 
+                    machine-learning approaches to enhance predictive performance. 
+              
+                    The final Balanced Random Forest models perform strongly across all forecasting 
+                    horizons. At the 12-month horizon, the model achieves approximately 99.7% overall 
+                    accuracy, recall close to 100%, and precision of around 96%, correctly identifying 
+                    nearly all future leavers while maintaining a low false-positive rate. Performance 
+                    remains similarly robust at the 6-month horizon, with precision around 90% and recall 
+                    close to 100%. 
+              
+                    In line with management priorities, we also implement forecasting under a 
+                    two-month notice-period setting, reflecting typical RBFT practice. Under this 
+                    configuration, the model attains approximately 99.6% accuracy and around 94% precision, 
+                    correctly flagging more than 99% of staff who subsequently leave. Cross-validation 
+                    and expanding-window testing confirm that model performance remains stable and robust 
+                    over time. 
+              
+                    The resulting framework functions as a practical early-warning system for staff 
+                    retention. By identifying at-risk employees in advance, managers can intervene earlier, 
+                    target support effectively, and reduce recruitment and training costs.
+                  </p>
+                </details>
+              
+                <p class="note">
+                  Co-authors: Shixuan Wang; Rita Fontinha
+                </p>
+              </article>
 
+              <!-- Paper 2 -->
+            <article class="paper">
+              <h3>
+                Words to the Wise: Do Green Bonds and Language Make an Impact on Greenness?
+              </h3>
+            
+              <p class="meta">
+                Status: Empirical work complete
+              </p>
+            
               <details>
                 <summary>Abstract</summary>
-                <p class="abstract">
-                  <!-- Add abstract later -->
+                <p class="abstract justified">
+                  We examine whether corporate green bond issuance causally reduces firms’ 
+                  greenhouse gas (GHG) emissions intensity and whether linguistic structure 
+                  shapes this environmental impact. Using an unbalanced panel of 3,867 
+                  publicly listed non-financial firms across 65 countries (2010–2024), 
+                  we implement a staggered Difference-in-Differences design, complemented 
+                  by entropy balancing to strengthen comparability between treated and 
+                  control firms.
+            
+                  We find that green bond issuance leads to economically meaningful 
+                  emission reductions of approximately 19–21% on average. The effects 
+                  are stronger in carbon-intensive industries, among high-investment 
+                  firms, and for long-maturity bonds, suggesting real operational 
+                  adjustments rather than symbolic commitments.
+            
+                  Crucially, we document a novel moderation channel: firms headquartered 
+                  in countries with weak Future Time Reference (FTR) languages experience 
+                  significantly larger emission reductions following issuance. This 
+                  linguistic effect remains robust when using a CEO-level Weak-FTR index 
+                  constructed via machine-learning-based phonetic classification. Our 
+                  findings demonstrate that financial instruments and cultural-linguistic 
+                  structures jointly shape corporate environmental outcomes.
                 </p>
               </details>
-
-              <p class="note">Co-authors: Shixuan Wang; Rita Fontinha</p>
+            
+              <p class="note">
+                Co-authors: Alessandra Guariglia
+              </p>
             </article>
 
-            <!-- Paper 2 -->
-            <article class="paper">
-              <h3>Forecasting USA Output Gap with Green-Benchmarked Divisia Monetary Aggregates</h3>
-              <p class="meta">Status: Submitted · Target: Energy Economics (CABS 3)</p>
-
-              <details>
-                <summary>Abstract</summary>
-                <p class="abstract">
-                  <!-- Add abstract later -->
-                </p>
-              </details>
-
-              <p class="note">Co-authors: Jane Binner; Rongrui Duan; Anandadeep Mandal; Soumya Bhadury</p>
-            </article>
 
             <!-- Paper 3 -->
-            <article class="paper">
-              <h3>Board Gender Diversity and Environmental Performance in Europe</h3>
-              <p class="meta">Status: Empirical work complete</p>
+                <article class="paper">
+                  <h3>
+                    When Birds of Different Feathers Flock Together: Ethnic Diversity and Armed Conflict
+                  </h3>
+                
+                  <p class="meta">
+                    Status: Empirical work complete · Target: Personality and Social Psychology Bulletin (CABS 4)
+                  </p>
+                
+                  <details>
+                    <summary>Abstract</summary>
+                    <p class="abstract justified">
+                      Ethnic diversity is frequently debated as either a structural source of instability 
+                      or a foundation for long-term social resilience. However, existing research largely 
+                      relies on static correlations and provides limited insight into how sudden increases 
+                      in diversity affect conflict dynamics over time. Using panel data for 152 countries 
+                      from 1990–2013, we conceptualize entry into the top quintile of the Historical Index 
+                      of Ethnic Fractionalization (HIEF) as an exogenous diversity “shock” and estimate its 
+                      dynamic effects on intra-state armed conflict.
+                
+                      We find clear causal evidence that diversity shocks increase conflict intensity. 
+                      Following a shock, conflict dyads rise significantly and remain elevated for 
+                      approximately six years before gradually attenuating. This dynamic escalation–adaptation 
+                      pattern constitutes a novel contribution to the literature, which has not previously 
+                      clarified the temporal adjustment process following large shifts in ethnic composition.
+                
+                      Mechanism analyses reveal substantial heterogeneity across regions and development levels. 
+                      The effect is most pronounced in Asia and the Middle East, moderate in the Americas 
+                      and Europe, and weaker elsewhere. Countries with lower Human Development Index (HDI) 
+                      levels experience stronger post-shock conflict escalation, while higher-HDI societies 
+                      demonstrate faster stabilization. Diversity shocks are also associated with higher 
+                      conflict-related mortality rates, indicating effects not only on incidence but also 
+                      on intensity.
+                
+                      Our findings remain robust across two-way fixed-effects models, staggered 
+                      difference-in-differences event studies, regression discontinuity designs around 
+                      the diversity threshold, and alternative panel specifications. By isolating the 
+                      dynamic shock component of ethnic diversity, our study clarifies when and where 
+                      diversity destabilizes societies and how institutional capacity shapes subsequent 
+                      adaptation.
+                    </p>
+                  </details>
+                
+                  <p class="note">
+                    Co-authors: Miguel R. Ramos; Matt Bennett; Unaysah Mogra
+                  </p>
+                </article>
 
-              <details>
-                <summary>Abstract</summary>
-                <p class="abstract">
-                  <!-- Add abstract later -->
-                </p>
-              </details>
-
-              <p class="note">Co-authors: Alessandra Guariglia; Elisa Tosetti</p>
-            </article>
-
-            <!-- Paper 4 -->
-            <article class="paper">
-              <h3>When Birds of Different Feathers Flock Together: Ethnic Diversity and Armed Conflict</h3>
-              <p class="meta">Status: Empirical work complete · Target: Personality and Social Psychology Bulletin (CABS 4)</p>
-
-              <details>
-                <summary>Abstract</summary>
-                <p class="abstract">
-                  <!-- Add abstract later -->
-                </p>
-              </details>
-
-              <p class="note">Co-authors: Miguel R. Ramos; Matt Bennett; Unaysah Mogra</p>
-            </article>
           </div>
         </section>
 
@@ -696,3 +774,4 @@
 
 </body>
 </html>
+
